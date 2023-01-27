@@ -1,0 +1,167 @@
+.mainContainer {
+    width: 100vw;
+    background-color: #f9f9f9;
+    padding: 8rem 0;
+}
+.orderScreenContainer {
+  max-width: 768px;
+  margin: 0rem auto;
+}
+
+.labelWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.labelWrapper h3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.labelWrapper > div {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.labelWrapper > div p{
+    font-size: 1.4rem;
+}
+.labelWrapper > div p span{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.labelWrapper > div button {
+    border: none;
+    outline: none;
+    background-color: #fb4040;
+    color: white;
+    padding: 0.7rem 2.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    border-radius: 0.3rem;
+    font-weight: bold;
+}
+
+.innerContainer {
+    background-color: #fff;
+    box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.25), -2px 2px 5px rgba(0, 0, 0, 0.22);
+    padding: 4rem;
+    border-radius: 0.5rem;
+}
+
+.innerContainer > div{
+  margin: 1.2rem 0;
+}
+
+.innerContainer .headWrapper{
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 1rem;
+    border-bottom-style: dashed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.innerContainer .headWrapper h4{
+    font-size: 1.6rem;
+    font-weight: 500;
+ }
+
+ .innerContainer .headWrapper button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fb4040;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+ }
+
+ .innerContainer .shippingAddressDiv {
+    padding: 1.5rem 0;
+    font-size: 1.3rem;
+    color: #666;
+ }
+
+ .innerContainer .shippingAddressDiv p:first-child{
+    color: black;
+    font-weight: bold;
+    font-size: 1.4rem;
+ }
+
+.paymentMethodDiv {
+  font-size: 1.4rem;
+  padding: 1rem 0;
+}
+
+.paymentMethodDiv span{
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.orderItemsDiv {
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+img {
+  width: 5rem;
+}
+
+
+@media (max-width: 768px) {
+  .orderScreenContainer {
+    max-width: 576px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .orderScreenContainer {
+    max-width: 480px;
+  }
+  .labelWrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .labelWrapper > div{ 
+    gap: 0;
+    justify-content: space-between!important;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .orderScreenContainer {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 360px) {
+  .orderScreenContainer {
+    max-width: 280px;
+  }
+
+  .labelWrapper > h3 {
+    font-size: 2rem;
+  }
+
+  .labelWrapper > div {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .orderItemsDiv {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}

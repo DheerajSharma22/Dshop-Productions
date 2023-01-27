@@ -1,0 +1,42 @@
+.PaymentProcess {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 5rem;
+  /* place-items: end; */
+}
+
+.PaymentProcess > div {
+  background-color: #3b4040;
+  height: 0.2rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.PaymentProcess > div > div {
+  width: 1rem;
+  height: 1rem;
+  background-color: #eb4040;
+  border-radius: 50%;
+  position: absolute;
+  top: -200%;
+}
+
+.endProcess {
+  left: 100%;
+}
+
+.PaymentProcess > div p {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.redBgc {
+  background-color: #eb4040!important;
+}
