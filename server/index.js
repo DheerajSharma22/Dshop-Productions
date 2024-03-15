@@ -25,8 +25,8 @@ app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/payment", paymentRouter);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+app.get("/", (req, res) => {
+  res.send("Hello world");
 })
 
 
