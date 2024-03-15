@@ -1,0 +1,39 @@
+.card-body {
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 0.1rem #c0c0c0 solid;
+    background-color: #f8f8f8;
+    margin-bottom: 2rem;
+}
+
+.cardImg {
+    height: 35rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.content {
+    padding: 1.5rem;
+}
+
+.productName {
+    font-size: 1.6rem;
+    color: #203040;
+}
+
+.ratingDiv {
+    padding: 1rem 0;
+}
+
+
+.ratingDiv span i {
+    color: #f0c040;
+    font-size: 1.5rem;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}

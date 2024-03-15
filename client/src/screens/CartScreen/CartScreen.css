@@ -1,0 +1,153 @@
+.mainCartContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cart-page {
+  margin: 8rem auto;
+  min-height: 70vh;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cart-info p {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+}
+
+.cart-info small {
+  font-size: 1.4rem;
+}
+
+th {
+  text-align: left;
+  padding: 5px;
+  color: #fff;
+  background-color: #ff523b;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.cart-page td {
+  padding: 10px 5px;
+}
+
+.cart-page td select {
+  width: 6rem;
+  outline: none;
+}
+
+td button {
+  color: #ff523b;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0.5rem 0;
+}
+
+td img {
+  width: 8rem;
+  height: 8rem;
+  margin-right: 1rem;
+}
+
+td:last-child {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+th:last-child {
+  text-align: right;
+}
+
+.totalPriceDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.totalPriceDiv table {
+  border-top: 0.3rem solid #ff523b;
+  width: 100%;
+  max-width: 45rem;
+}
+
+.totalPriceDiv table td {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.totalPriceDiv tbody {
+  display: flex;
+}
+.checkOutBtn {
+    background-color: #fb4040;
+    color: white;
+    border:none;
+    outline: none;
+    border-radius: 5rem;
+    width: 25rem;
+    cursor: pointer;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.checkOutBtn:disabled {
+  background-color: #e5e5e5;
+  color: #666;
+}
+
+@media (max-width: 1140px) {
+  .mainCartContainer {
+    max-width: 768px;
+  }
+  .totalPriceDiv table {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .mainCartContainer {
+    max-width: 580px;
+  }
+  .totalPriceDiv table {
+    width: 25rem;
+  }
+  .checkOutBtn {
+    width: 100%!important;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .mainCartContainer {
+    max-width: 380px;
+  }
+  .cart-info p {
+    display: none;
+  }
+  .totalPriceDiv table {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .mainCartContainer {
+    max-width: 280px;
+  }
+  .cart-info p {
+    display: none;
+  }
+}
