@@ -34,8 +34,6 @@ paymentRouter.post("/placeOrder", async (req, res) => {
   } catch (error) {
     res.status(500).json({
       error,
-      key: process.env.RAZORPAY_KEY,
-      secret: process.env.RAZORPAY_SECRET,
     });
   }
 
