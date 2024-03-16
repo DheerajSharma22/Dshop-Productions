@@ -15,9 +15,7 @@ connectToMongo();
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: "https://dshop-green.vercel.app",
-}))
+app.use(cors());
 
 app.use("/api/admin", adminRoutes);
 app.use("/api/users", userRouter);
