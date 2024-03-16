@@ -14,7 +14,7 @@ paymentRouter.post("/placeOrder", async (req, res) => {
   try {
     let amount = req.body?.amount;
 
-    if (!amount) return res.status(400).send("Amount not received...);
+    if (!amount) return res.status(400).send("Amount not received...");
 
     let instance = await new Razorpay({
       key_id: process.env.RAZORPAY_KEY,
