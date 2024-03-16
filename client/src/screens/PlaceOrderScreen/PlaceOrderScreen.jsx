@@ -8,6 +8,7 @@ import PaymentProcess from "../../Components/PaymentProcess/PaymentProcess";
 import { setNewOrder } from "../../redux/Slice/paymentSlice";
 import { clearCart } from "../../redux/Slice/cartSlice";
 import BASE_URL from "../../BaseURL";
+import axios from 'axios';
 
 const PlaceOrderScreen = () => {
   const { state } = useLocation();
@@ -52,16 +53,13 @@ const PlaceOrderScreen = () => {
       const Tax = (products.reduce((a, c) => a + c.price * c.qty, 0) / 100) * 2;
       const totalAmount = parseInt(total) * 100;
       
-      const res = await fetch(`${BASE_URL}/api/payment/placeOrder`, {
-        method: "POST",
+      const res = await axios.post(`${BASE_URL}/api/payment/placeOrder`, {amount: totalAmount} , {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          amount: totalAmount,
-        }),
       });
-      const { order } = await res.json();
+      console.log(res);
+      const { order } = res;
 
       const options = {
         key: "rzp_test_XylOqflbrVjbEm",
