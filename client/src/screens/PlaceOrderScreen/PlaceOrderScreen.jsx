@@ -9,6 +9,7 @@ import { setNewOrder } from "../../redux/Slice/paymentSlice";
 import { clearCart } from "../../redux/Slice/cartSlice";
 import BASE_URL from "../../BaseURL";
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 const PlaceOrderScreen = () => {
   const { state } = useLocation();
@@ -48,7 +49,7 @@ const PlaceOrderScreen = () => {
 
   const placeOrderHandler = async (e) => {
     e.preventDefault();
-
+    const toastId = toast.loading("Loading...");
     try {
       const Tax = (products.reduce((a, c) => a + c.price * c.qty, 0) / 100) * 2;
       const totalAmount = parseInt(total) * 100;
@@ -58,6 +59,7 @@ const PlaceOrderScreen = () => {
           "Content-Type": "application/json",
         },
       });
+      toast.dismiss(toastId);
       // console.log(res);
       const { order } = res?.data;
 
@@ -88,6 +90,8 @@ const PlaceOrderScreen = () => {
     } catch (error) {
       console.log(error);
     }
+      toast.dismiss(toastId);
+    
 
   };
 
