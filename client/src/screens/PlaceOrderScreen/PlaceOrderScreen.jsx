@@ -58,7 +58,6 @@ const PlaceOrderScreen = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log(res);
       const { order } = res;
 
       const options = {
