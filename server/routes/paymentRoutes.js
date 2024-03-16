@@ -30,7 +30,7 @@ paymentRouter.post("/placeOrder", async (req, res) => {
       order,
     });
   } catch (error) {
-    res.status(500).send("Something went wrong while placing a order")
+    res.status(500).send(error);
   }
 
 });
