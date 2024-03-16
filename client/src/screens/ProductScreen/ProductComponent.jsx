@@ -56,11 +56,7 @@ const ProductComponent = () => {
     }
   }, [selectedPrice, selectedCategory, selectedRating]);
 
-  if (!products.length > 0) {
-    return <h1>Products Not Found</h1>;
-  }
-
-  return (
+   return (
     <>
       <div className="FilterAndListPanelWrapper">
         <FilterPanel
@@ -71,7 +67,7 @@ const ProductComponent = () => {
           setPrice={setSelectedPrice}
           setRatings={setSelectedRating}
         />
-        {dataList ? <ListPanel products={dataList} /> : <h1>Products Not Found</h1>}
+        <ListPanel products={dataList} />
       </div>
     </>
   );

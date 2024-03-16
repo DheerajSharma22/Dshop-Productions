@@ -1,4 +1,5 @@
 const { createSlice } = require("@reduxjs/toolkit");
+const BASE_URL = require('../../BaseURL');
 
 const productSlice = createSlice({
   name: "product",
@@ -41,7 +42,7 @@ export function setProduct() {
   return async function setProductThunk(dispatch, getState) {
     dispatch(setLoading(true));
     try {
-      const res = await fetch("/api/products");
+      const res = await fetch(`${BASE_URL.default}/api/products`);
       const data = await res.json();
       dispatch(setProducts(data));
       dispatch(setLoading(false));
@@ -58,7 +59,7 @@ export function getProductDetails() {
     dispatch(setProductDetailsLoading(true));
     const productId = getState().productReducer.productId.split(":")[1];
     try {
-      const res = await fetch(`/api/products/${productId}`);
+      const res = await fetch(`${BASE_URL.default}/api/products/${productId}`);
       const data = await res.json();
       dispatch(setProductDetails(data));
       dispatch(setProductDetailsLoading(false));

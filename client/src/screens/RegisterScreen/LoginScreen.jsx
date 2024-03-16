@@ -4,8 +4,9 @@ import Styles from "./RegisterScreen.module.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setUser } from "../../redux/Slice/userSlice";
+import { setToken, setUser } from "../../redux/Slice/userSlice";
 import toast from "react-hot-toast";
+import BaseURL from "../../BaseURL";
 
 
 const LoginScreen = ({ setLoginScreen }) => {
@@ -23,11 +24,12 @@ const LoginScreen = ({ setLoginScreen }) => {
 
     const toastId = toast.loading("Loading...");
     try {
-      const res = await axios.post("/api/users/login", { email, password });
+      const res = await axios.post(`${BaseURL}/api/users/login`, { email, password });
       const { data, status } = res;
       if (status === 200) {
         toast("LoggedIn Successfully...");
-        dispatch(setUser(data));
+        dispatch(setUser(data.user));
+        dispatch(setToken(data.jwtToken));
         navigate(-1);
       }
     } catch (err) {

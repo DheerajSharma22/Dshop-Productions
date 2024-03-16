@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const location = useLocation();
   const { products } = useSelector((state) => state.cartReducer);
-  const user = useSelector((state) => state.userReducer.user);
+  const {user, token} = useSelector((state) => state.userReducer);
 
   const [active, setActive] = useState(false);
   const toggleMenu = (id) => {
@@ -67,10 +67,10 @@ const Header = () => {
               </Link>
             </div>
 
-            {user ? (
+            {token ? (
               <div className="userDiv">
                 <Link
-                  to={`/privateRoutes/userprofile?id=${user._id}`}
+                  to={`/privateRoutes/userprofile?id=${user?._id}`}
                   className="userLinks"
                 >
                   <i className="fa-solid fa-user user"></i>

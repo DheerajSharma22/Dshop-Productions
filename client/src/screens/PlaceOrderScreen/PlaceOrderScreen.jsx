@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PaymentProcess from "../../Components/PaymentProcess/PaymentProcess";
 import { setNewOrder } from "../../redux/Slice/paymentSlice";
 import { clearCart } from "../../redux/Slice/cartSlice";
+import BASE_URL from "../../BaseURL";
 
 const PlaceOrderScreen = () => {
   const { state } = useLocation();
@@ -50,7 +51,8 @@ const PlaceOrderScreen = () => {
     try {
       const Tax = (products.reduce((a, c) => a + c.price * c.qty, 0) / 100) * 2;
       const totalAmount = parseInt(total) * 100;
-      const res = await fetch("/api/payment/placeOrder", {
+      
+      const res = await fetch(`${BASE_URL}/api/payment/placeOrder`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

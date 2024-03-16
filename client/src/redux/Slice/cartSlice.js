@@ -1,4 +1,6 @@
 const { createSlice } = require("@reduxjs/toolkit");
+const BASE_URL = require("../../BaseURL");
+
 
 const cartSlice = createSlice({
   name: "cart",
@@ -59,7 +61,7 @@ export function removeFromCartHandler(productId) {
 export function addToCartHandler(productId, qty) {
   return async function addToCartHandlerThunk(dispatch, getState) {
     try {
-      const res = await fetch(`/api/products/${productId}`);
+      const res = await fetch(`${BASE_URL.default}/api/products/${productId}`);
       const data = await res.json();
       const product = {
         product_id: data._id,

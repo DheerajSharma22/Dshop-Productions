@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import LoginScreen from "./LoginScreen";
 import Styles from "./RegisterScreen.module.css";
 import axios from "axios";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from 'react-hot-toast';
-import { setUser } from "../../redux/Slice/userSlice";
+import { setToken, setUser } from "../../redux/Slice/userSlice";
+import BaseURL from "../../BaseURL";
 
 const RegisterScreen = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const RegisterScreen = () => {
 
     const toastId = toast.loading("Loading...");
     try {
-      const res = await axios.post("/api/users/register", {
+      const res = await axios.post(`${BaseURL}/api/users/register`, {
         name,
         email,
         password,
@@ -36,7 +37,8 @@ const RegisterScreen = () => {
       if (status === 200) {
         toast.success("Registered Successfully....");
         if (status === 200) {
-          dispatch(setUser(data));
+          dispatch(setUser(data.user));
+          dispatch(setToken(data.jwtToken));
           navigate(-1);
         }
       }

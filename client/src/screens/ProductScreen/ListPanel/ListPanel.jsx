@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 
 const ListPanel = ({ products }) => {
   return (
-    <div className={`py-2 ${styles.listWrapper}`}>
+    <div className={`py-2`}>
       <div className={styles.labelWrapper}>
         <h3 className={styles.productLabel}>Products</h3>
       </div>
       <div className={styles.cardWrapper}>
-        {products.map((curElem, index) => {
+        {products ? products.map((curElem, index) => {
           return (
             <Link to={`/products/:${curElem._id}`} key={index}>
               <Card
@@ -21,7 +21,9 @@ const ListPanel = ({ products }) => {
               />
             </Link>
           );
-        })}
+        }) : <div style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+          <p style={{ fontSize: "2rem"}}>Products not found</p>
+        </div>}
       </div>
     </div>
   );

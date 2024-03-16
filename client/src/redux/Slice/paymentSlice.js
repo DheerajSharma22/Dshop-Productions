@@ -1,5 +1,6 @@
 const { createSlice } = require("@reduxjs/toolkit");
 const axios = require("axios");
+const BASE_URL = require('../../BaseURL')
 
 const paymentSlice = createSlice({
   name: "payment",
@@ -27,7 +28,7 @@ export default paymentSlice.reducer;
 export const setNewOrder = (order) => {
   return async function setNewOrderThunk(dispatch, getState) {
     try {
-      const res = await axios.post("/api/payment/paymentVerification", order);
+      const res = await axios.post(`${BASE_URL.default}/api/payment/paymentVerification`, order);
       const data = res.data;
       dispatch(setOrder(data));
       dispatch(setIsSuccess(true));
@@ -40,7 +41,7 @@ export const setNewOrder = (order) => {
 export const fetchOrder = () => {
   return async function fetchOrderThunk(dispatch, getState) {
     try {
-      const res = await axios.get("/api/payment");
+      const res = await axios.get(`${BASE_URL.default}/api/payment`);
       const data = res.data;
       dispatch(setOrders(data));
     } catch (error) {

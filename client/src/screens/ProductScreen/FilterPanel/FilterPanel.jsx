@@ -46,9 +46,6 @@ const FilterPanel = ({
         <h3 className={styles.label}>Category</h3>
         <ul>
           {categories.map((curElem, index) => {
-            if (index === 0) {
-              return "";
-            }
             return (
               <>
                 <li

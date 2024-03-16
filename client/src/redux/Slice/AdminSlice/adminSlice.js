@@ -1,5 +1,5 @@
 import { removeFromCartHandler } from "../cartSlice";
-
+const BASE_URL = require("../../../BaseURL");
 const { createSlice } = require("@reduxjs/toolkit");
 const axios = require("axios");
 const { setProduct, setProducts } = require("../productSlice");
@@ -36,7 +36,7 @@ export default adminSlice.reducer;
 export function fetchUsers() {
   return async function fetchUsersThunk(dispatch, getState) {
     try {
-      const res = await axios.get("/api/admin/users");
+      const res = await axios.get(`${BASE_URL.default}/api/admin/users`);
       const data = res.data.users;
       dispatch(setUsers(data));
     } catch (error) {
@@ -49,7 +49,7 @@ export function fetchUsers() {
 export function fetchOrders() {
   return async function fetchOrdersThunk(dispatch, getState) {
     try {
-      const res = await axios.get("/api/admin/orders");
+      const res = await axios.get(`${BASE_URL.default}/api/admin/orders`);
       const data = res.data.orders;
       dispatch(setOrders(data));
     } catch (error) {
@@ -62,7 +62,7 @@ export function fetchOrders() {
 export function fetchCategories() {
   return async function fetchOrdersThunk(dispatch, getState) {
     try {
-      const res = await axios.get("/api/admin/categories");
+      const res = await axios.get(`${BASE_URL.default}/api/admin/categories`);
       const data = res.data.categories;
       dispatch(setCategory(data));
     } catch (error) {
@@ -74,7 +74,7 @@ export function fetchCategories() {
 export function addCategory(name, slug) {
   return async function addCategoryThunk(dispatch, getState) {
     try {
-      const res = await axios.post("/api/admin/add_category", { name, slug });
+      const res = await axios.post(`${BASE_URL.default}/api/admin/add_category`, { name, slug });
       const data = res.data;
       dispatch(setCategory([...getState().adminReducer.categories, data]));
     } catch (error) {
@@ -86,7 +86,7 @@ export function addCategory(name, slug) {
 export function updateCategory(_id, name) {
   return async function updateCategoryThunk(dispatch, getState) {
     try {
-      await fetch("/api/admin/update_category", {
+      await fetch(`${BASE_URL.default}/api/admin/update_category`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -106,7 +106,7 @@ export function updateCategory(_id, name) {
 export function removeCategory(_id) {
   return async function removeCategoryThunk(dispatch, getState) {
     try {
-      await fetch("/api/admin/remove_category", {
+      await fetch(`${BASE_URL.default}/api/admin/remove_category`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -126,7 +126,7 @@ export function removeCategory(_id) {
 export function addProducts(product) {
   return async function addProductsThunk(dispatch, getState) {
     try {
-      const res = await axios.post("/api/admin/add_product", {
+      const res = await axios.post(`${BASE_URL.default}/api/admin/add_product`, {
         name: product.name,
         brand: product.brand,
         category: product.category,
@@ -146,7 +146,7 @@ export function addProducts(product) {
 export function updateProducts(id, product) {
   return async function updateProductThunk(dispatch, getState) {
     try {
-      await fetch("/api/admin/update_product", {
+      await fetch(`${BASE_URL.default}/api/admin/update_product`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -173,7 +173,7 @@ export function updateProducts(id, product) {
 export function removeProduct(_id) {
   return async function removeProductThunk(dispatch, getState) {
     try {
-      await fetch("/api/admin/remove_product", {
+      await fetch(`${BASE_URL.default}/api/admin/remove_product`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

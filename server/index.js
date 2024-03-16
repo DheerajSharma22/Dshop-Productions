@@ -7,6 +7,7 @@ const paymentRouter = require("./routes/paymentRoutes");
 const PORT = process.env.PORT || 5000;
 const cookieParser = require("cookie-parser");
 const adminRoutes = require("./routes/adminRoutes");
+const cors = require('cors');
 require("dotenv").config();
 
 connectToMongo();
@@ -14,6 +15,9 @@ connectToMongo();
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors({
+  origin: "https://dshop-green.vercel.app/",
+}))
 
 app.use("/api/admin", adminRoutes);
 app.use("/api/users", userRouter);

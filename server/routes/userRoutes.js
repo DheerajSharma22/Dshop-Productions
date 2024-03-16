@@ -38,7 +38,7 @@ userRouter.post(
       });
 
       const user = await createNewUser.save();
-      res.status(200).send(user);
+      res.status(200).json({user, jwtToken});
     } catch (error) {
       return res.status(500).send(error?.message);
     }
@@ -69,7 +69,7 @@ userRouter.post(
         return res.status(401).send("Invailid Details...");
       }
 
-      res.status(200).send(user);
+      res.status(200).json({user, jwtToken});
     } catch (error) {
       return res.status(500).send(error?.message);
     }
@@ -91,12 +91,9 @@ userRouter.get("/logout", auth, async (req, res) => {
   }
 });
 
-userRouter.get("/isAuthorized", async (req, res) => {
+userRouter.get("/isAuthorized", auth, async (req, res) => {
   try {
-    const token = req.cookies.jwtToken;
-    const verifyUser = jwt.verify(token, process.env.JWT_SECRET);
-
-    const user = await User.findOne({ _id: verifyUser._id });
+    const user = await User.findOne({ _id: req.user?._id });
     if (user) {
       res.status(200).send(user);
     }

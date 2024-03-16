@@ -4,15 +4,17 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/Slice/userSlice";
+import { setToken, setUser } from "../../redux/Slice/userSlice";
 import { fetchOrders } from "../../redux/Slice/AdminSlice/adminSlice"
 import Loading from '../../Components/LoadingComponent/Loading';
+import BASE_URL from "../../BaseURL";
+
 
 const UserProfileScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.userReducer);
-  const {orders} = useSelector((state) => state.adminReducer);
+  const { orders } = useSelector((state) => state.adminReducer);
 
   useEffect(() => {
     dispatch(fetchOrders());
@@ -24,9 +26,11 @@ const UserProfileScreen = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.get("/api/users/logout");
+      const res = await axios.get(`${BASE_URL}/api/users/logout`);
       if (res.status === 200) {
         dispatch(setUser(null));
+        dispatch(setToken(null));
+        localStorage.removeItem("jwtToken");
         navigate("/public/register");
       }
     } catch (error) {
@@ -60,21 +64,20 @@ const UserProfileScreen = () => {
                 </tr>
               </thead>
               <tbody>
-              {console.log(orders)}
                 {orders
                   ? orders.map((curElem, index) => {
-                      return (
-                        <tr
-                          onClick={() => handler(curElem.order_id)}
-                          key={index}
-                        >
-                          <td>{curElem.order_id}</td>
-                          <td>{curElem.createdAt}</td>
-                          <td>{curElem.isPaid ? <span>paid</span> : "due"}</td>
-                          <td>₹{curElem.totalPrice}</td>
-                        </tr>
-                      );
-                    })
+                    return (
+                      <tr
+                        onClick={() => handler(curElem.order_id)}
+                        key={index}
+                      >
+                        <td>{curElem.order_id}</td>
+                        <td>{curElem.createdAt}</td>
+                        <td>{curElem.isPaid ? <span>paid</span> : "due"}</td>
+                        <td>₹{curElem.totalPrice}</td>
+                      </tr>
+                    );
+                  })
                   : ""}
               </tbody>
             </table>

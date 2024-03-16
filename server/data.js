@@ -133,7 +133,7 @@ data = [
   },
   {
     name: "HP Pavilion 14 laptop",
-    category: "computers and laptops",
+    category: "electronics",
     image: "/images/laptop3.jpg",
     price: 1510,
     countInStock: 25,
@@ -145,7 +145,7 @@ data = [
   },
   {
     name: "Asus Zenbook 3",
-    category: "computers and laptops",
+    category: "electronics",
     image: "/images/laptop4.jpg",
     price: 2000,
     countInStock: 8,
@@ -157,7 +157,7 @@ data = [
   },
   {
     name: "Dell inspiron 14",
-    category: "computers and laptops",
+    category: "electronics",
     image: "/images/laptop1.jpg",
     price: 1800,
     countInStock: 12,
@@ -169,7 +169,7 @@ data = [
   },
   {
     name: "Asus vivobook 15",
-    category: "computers and laptops",
+    category: "electronics",
     image: "/images/laptop2.jpg",
     price: 2500,
     countInStock: 4,
@@ -181,7 +181,7 @@ data = [
   },
   {
     name: "Low Budget Desktop Pc",
-    category: "computers and laptops",
+    category: "electronics",
     image: "/images/pc1.jpg",
     price: 800,
     countInStock: 13,
@@ -193,7 +193,7 @@ data = [
   },
   {
     name: "High Budget Desktop Pc",
-    category: "computers and laptops",
+    category: "electronics",
     image: "/images/pc2.jpg",
     price: 2800,
     countInStock: 3,
@@ -205,7 +205,7 @@ data = [
   },
   {
     name: "Gaming Desktop Pc",
-    category: "computers and laptops",
+    category: "electronics",
     image: "/images/pc4.jpg",
     price: 5000,
     countInStock: 17,
@@ -217,7 +217,7 @@ data = [
   },
   {
     name: "Coding Computer",
-    category: "computers and laptops",
+    category: "electronics",
     image: "/images/pc3.jpg",
     price: 1500,
     countInStock: 27,
