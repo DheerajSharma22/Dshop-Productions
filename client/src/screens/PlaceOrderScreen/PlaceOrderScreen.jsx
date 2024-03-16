@@ -58,8 +58,8 @@ const PlaceOrderScreen = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log(res);
-      const { order } = res;
+      // console.log(res);
+      const { order } = res?.data;
 
       const options = {
         key: "rzp_test_XylOqflbrVjbEm",
