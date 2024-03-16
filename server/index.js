@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: "https://dshop-green.vercel.app/",
+  origin: "https://dshop-green.vercel.app",
 }))
 
 app.use("/api/admin", adminRoutes);
